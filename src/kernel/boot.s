@@ -18,6 +18,13 @@ stack_top:
 
 .section .text
 .global _start
+.global idt_load
+
+idt_load:
+	mov %eax, 4(%esp)
+	lidt (%eax)
+	ret
+
 .type _start, @function
 _start:
 
